@@ -17,6 +17,9 @@ for e in doc.keys():
 
 for c in to_convert:
     data = doc.pop(c)
+    if not "options" in data:
+        print "Skipping %s, no name found!" % c
+        continue
     name = data["options"]["name"]
     data["options"].pop("name")
     if data["options"] == {}:
